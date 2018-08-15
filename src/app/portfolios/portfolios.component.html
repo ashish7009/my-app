@@ -1,3 +1,12 @@
-<p>
-  portfolios works!
-</p>
+<h1>Portfolios</h1>
+
+<ul>
+  <li *ngFor="let portfolio of portfolios">
+    <a routerLink="/user/{{user.id}}">{{ portfolio.name }}</a>
+    
+    <ul>
+      <li>{{ user.description }}</li>
+      <li><a href="http://{{ user.website }}">{{ user.link }}</a></li>
+    </ul>
+  </li>
+</ul>

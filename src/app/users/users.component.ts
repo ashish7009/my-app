@@ -8,15 +8,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
-	 users: Object;
-
+	users: Object;
   	constructor(private data: DataService) { }
-
   	ngOnInit() {
   		this.data.getUsers().subscribe(
       		data => this.users = data 
     	);
   	}
-
 }

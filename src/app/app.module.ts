@@ -7,13 +7,15 @@ import { AppRoutingModule } from './/app-routing.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UsersComponent } from './users/users.component';
 import { PortfoliosComponent } from './portfolios/portfolios.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     UsersComponent,
-    PortfoliosComponent
+    PortfoliosComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
