@@ -26,6 +26,7 @@ nav ul li .thumb > ul{
 	width: 160px;
 	background: #212121;
 	display: none;
+	z-index: 99;
 }
 nav ul li .thumb:hover > ul{
 	display: block;

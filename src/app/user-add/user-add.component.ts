@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-user-add',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAddComponent implements OnInit {
 
-  constructor() { }
+	public form = {
+		name:null,
+		email:null,
+		password:null
+	};
 
-  ngOnInit() {
-  }
+	message = null;
+	
+  	constructor(private data_service: DataService) { }
+
+	ngOnInit() {
+	
+	}
+
+	onSubmit(){
+		this.data_service.addUser(this.form).subscribe(
+	  		data => this.sendMessage(data) 
+		);
+	}
+
+	sendMessage(data){
+		this.message = data.message;
+		this.form = {
+			name:null,
+			email:null,
+			password:null
+		};
+	}
 
 }

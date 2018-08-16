@@ -1,12 +1,18 @@
 <h1>Users</h1>
 
 <ul>
-  <li *ngFor="let user of users">
+  <li class="list" *ngFor="let user of users">
     <a routerLink="/user/{{user.id}}">{{ user.name }}</a>
     
     <ul>
       <li>{{ user.email }}</li>
       <li><a href="http://{{ user.website }}">{{ user.website }}</a></li>
     </ul>
+    <a (click)="deleteUser(user.id,user.name)" class="delete-button">
+    	<i class="material-icons">
+			delete
+		</i>
+    </a>
+	    
   </li>
 </ul>

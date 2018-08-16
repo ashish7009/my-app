@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users/users.component';
-import { PortfoliosComponent } from './portfolios/portfolios.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { PortfoliosComponent } from './portfolios/portfolios.component';
+import { PortfolioEditComponent } from './portfolio-edit/portfolio-edit.component';
+import { PortfolioAddComponent } from './portfolio-add/portfolio-add.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+
 
 const routes: Routes = [
 	  {
@@ -23,14 +27,14 @@ const routes: Routes = [
       component: PortfoliosComponent,
       canActivate: [AuthGuard]
     },
+    {
+      path: 'profile/view',
+      component: ProfileViewComponent,
+      canActivate: [AuthGuard]
+    },
 	  {
     	path: 'users',
     	component: UsersComponent,
-      canActivate: [AuthGuard]
-  	},
-  	{
-    	path: 'portfolios',
-    	component: PortfoliosComponent,
       canActivate: [AuthGuard]
   	},
     {
@@ -43,7 +47,21 @@ const routes: Routes = [
 	    component: UserEditComponent,
       canActivate: [AuthGuard]
 	  },
-    
+    {
+      path: 'portfolios',
+      component: PortfoliosComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'portfolio/add',
+      component: PortfolioAddComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'portfolio/:id',
+      component: PortfolioEditComponent,
+      canActivate: [AuthGuard]
+    },
 ];
 
 @NgModule({

@@ -2,7 +2,7 @@
 
 <ul>
   <li *ngFor="let portfolio of portfolios">
-    <a routerLink="/user/">{{ portfolio.project_name }}</a>
+    <a routerLink="/portfolio/{{portfolio.id}}">{{ portfolio.project_name }}</a>
     
     <ul>
       <li>{{ portfolio.description }}</li>

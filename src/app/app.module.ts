@@ -17,6 +17,8 @@ import { RegisterComponent } from './register/register.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { PortfolioAddComponent } from './portfolio-add/portfolio-add.component';
 import { PortfolioEditComponent } from './portfolio-edit/portfolio-edit.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { PortfolioEditComponent } from './portfolio-edit/portfolio-edit.componen
     RegisterComponent,
     UserAddComponent,
     PortfolioAddComponent,
-    PortfolioEditComponent
+    PortfolioEditComponent,
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,
