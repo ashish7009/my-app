@@ -40,3 +40,16 @@ body {
   font-size: 1em;
   font-weight: 300;
 }
+app-sidebar:empty{
+
+}
+nav[_ngcontent-c1]{
+  width: 80px;
+}
+.form[_ngcontent-c2] button[_ngcontent-c2]:disabled{
+  background-color: grey;
+  cursor: not-allowed;
+}
+.form[_ngcontent-c2] button[_ngcontent-c2]:disabled:hover{
+  background-color: grey
+}

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,17 +14,18 @@ export class LoginComponent implements OnInit {
 		email:null,
 		password:null
 	};
-	res
-  constructor(private auth: AuthService) {
-    
-  }
+  token;
+  constructor(private auth: AuthService,private myRoute: Router) { }
   ngOnInit() {
 
   }
   onSubmit(){
   	this.auth.doLogin(this.form).subscribe(
-      data => this.res = data 
+      data => this.saveToken(data) 
     );	
   }
-
+  saveToken(data){
+    localStorage.setItem("LoggedInUser", data.token);
+    this.myRoute.navigate(["portfolios"]);
+  }
 }

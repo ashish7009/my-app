@@ -1,9 +1,13 @@
-<form #loginForm=ngForm (ngSubmit)="onSubmit()">
-
-<input type="email" placeholder="Email" name="email" [(ngModel)]="form.email" required="required" />
-
-<input type="password" placeholder="Password" name="password" [(ngModel)]="form.password" required="required" />
-
-<button type="submit" color="primary" [disabled]="!loginForm.valid">Login</button>
-
-</form>
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" #loginForm=ngForm (ngSubmit)="onSubmit()">
+            <input type="email" placeholder="Email" name="email" [(ngModel)]="form.email" required="required"/>
+            <input type="password" placeholder="Password" name="password" [(ngModel)]="form.password" required="required"/>
+            <button type="submit" color="primary" [disabled]="!loginForm.valid">login</button>
+            <p class="message">
+                Not registered? 
+                <a routerLink="/register">Create an account</a>
+            </p>
+        </form>
+    </div>
+</div>

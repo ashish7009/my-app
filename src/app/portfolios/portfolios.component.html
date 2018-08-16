@@ -2,11 +2,11 @@
 
 <ul>
   <li *ngFor="let portfolio of portfolios">
-    <a routerLink="/user/{{user.id}}">{{ portfolio.name }}</a>
+    <a routerLink="/user/">{{ portfolio.project_name }}</a>
     
     <ul>
-      <li>{{ user.description }}</li>
-      <li><a href="http://{{ user.website }}">{{ user.link }}</a></li>
+      <li>{{ portfolio.description }}</li>
+      <li><a href="http:/">{{ portfolio.link }}</a></li>
     </ul>
   </li>
 </ul>

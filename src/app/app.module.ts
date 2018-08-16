@@ -14,6 +14,9 @@ import { PortfoliosComponent } from './portfolios/portfolios.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { UserAddComponent } from './user-add/user-add.component';
+import { PortfolioAddComponent } from './portfolio-add/portfolio-add.component';
+import { PortfolioEditComponent } from './portfolio-edit/portfolio-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { RegisterComponent } from './register/register.component';
     PortfoliosComponent,
     UserEditComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserAddComponent,
+    PortfolioAddComponent,
+    PortfolioEditComponent
   ],
   imports: [
     BrowserModule,
