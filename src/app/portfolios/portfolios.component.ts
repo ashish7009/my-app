@@ -8,13 +8,25 @@ import { Observable } from 'rxjs';
   styleUrls: ['./portfolios.component.css']
 })
 export class PortfoliosComponent implements OnInit {
-  portfolios: Object;
+  portfolios_production: Object;
+  portfolios_development: Object;
+  textToCopy = null;
   constructor(private data: DataService) { }
 
   ngOnInit() {
   	this.data.getPortfolios().subscribe(
-     	data => this.portfolios = data 
+     	data => this.handleData(data) 
     );
   }
 
+  handleData(data){
+    this.portfolios_production = data.production_portfolios;
+    this.portfolios_development = data.development_portfolios;
+  }
+  
+
+  copyMessage(id){
+    this.textToCopy = document.getElementById(id);
+    console.log(this.textToCopy);
+    }
 }

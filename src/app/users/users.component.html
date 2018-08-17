@@ -1,5 +1,7 @@
 <h1>Users</h1>
-
+<div *ngIf="message" style="background-color: #ffcdd2;padding: 12px;margin-bottom: 16px;">
+      {{message}}
+    </div>
 <ul>
   <li class="list" *ngFor="let user of users">
     <a routerLink="/user/{{user.id}}">{{ user.name }}</a>

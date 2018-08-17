@@ -24,7 +24,8 @@ export class UserAddComponent implements OnInit {
 
 	onSubmit(){
 		this.data_service.addUser(this.form).subscribe(
-	  		data => this.sendMessage(data) 
+	  		data => this.sendMessage(data),
+	  		error => this.handleError(error)
 		);
 	}
 
@@ -35,6 +36,10 @@ export class UserAddComponent implements OnInit {
 			email:null,
 			password:null
 		};
+	}
+
+	handleError(error){
+		this.message = error.error;
 	}
 
 }

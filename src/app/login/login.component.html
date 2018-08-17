@@ -1,6 +1,9 @@
 <div class="login-page">
     <div class="form">
         <form class="login-form" #loginForm=ngForm (ngSubmit)="onSubmit()">
+            <div *ngIf="message" style="background-color: #d7e2d7;padding: 12px;margin-bottom: 16px;">
+                {{message}}
+            </div>
             <input type="email" placeholder="Email" name="email" [(ngModel)]="form.email" required="required"/>
             <input type="password" placeholder="Password" name="password" [(ngModel)]="form.password" required="required"/>
             <button type="submit" color="primary" [disabled]="!loginForm.valid">login</button>

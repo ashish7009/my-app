@@ -15,17 +15,23 @@ export class LoginComponent implements OnInit {
 		password:null
 	};
   token;
+  message = null;
   constructor(private auth: AuthService,private myRoute: Router) { }
   ngOnInit() {
 
   }
   onSubmit(){
   	this.auth.doLogin(this.form).subscribe(
-      data => this.saveToken(data) 
+      data => this.saveToken(data),
+      error => this.handleError(error)
     );	
   }
   saveToken(data){
     localStorage.setItem("LoggedInUser", data.token);
     this.myRoute.navigate(["portfolios"]);
+  }
+  handleError(error){
+    console.log(error.error);
+    this.message = error.error;
   }
 }

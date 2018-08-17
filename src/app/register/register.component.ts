@@ -10,7 +10,8 @@ export class RegisterComponent implements OnInit {
 	public form = {
 		name:null,
 		email:null,
-		password:null
+		password:null,
+    permission:null
 	};
 	message = null;
   constructor(private auth: AuthService) {
@@ -20,12 +21,19 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(){
+
   	this.auth.registerUser(this.form).subscribe(
       data => this.sendMessage(data) 
     );	
   }
   sendMessage(data){
   	this.message = data.message;
+    this.form = {
+      name:null,
+      email:null,
+      password:null,
+      permission:null
+    };
   }
 
 }

@@ -11,15 +11,20 @@ import { ActivatedRoute } from "@angular/router";
 export class UserEditComponent implements OnInit {
 
   user: Object;
-
+  message = null;
   constructor(private route: ActivatedRoute,private data: DataService) { 
   	this.route.params.subscribe( params => this.user = params.id );
   }
 
   ngOnInit() {
   	this.data.getUser(this.user).subscribe(
-      data => this.user = data 
+      data => this.user = data,
+      error => this.handleError(error)
     );
+  }
+
+  handleError(error){
+    this.message = error.error;
   }
 
 }

@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-	users: Object;
+	  users: Object;
+    message = null;
   	constructor(private data: DataService) { }
   	ngOnInit() {
   		this.getUsers();
@@ -16,14 +17,20 @@ export class UsersComponent implements OnInit {
     deleteUser(userID,name){
       if(confirm("Are you sure to delete "+name)) {
         this.data.deleteUser(userID).subscribe(
-            data => console.log(data) 
+            data => console.log(data),
+            error => this.handleError(error)
         );
         this.getUsers();
        }
     }
     getUsers(){
       this.data.getUsers().subscribe(
-          data => this.users = data 
+          data => this.users = data,
+          error => this.handleError(error)
       );
+    }
+    handleError(error){
+      console.log(error.error);
+      this.message = error.error;
     }
 }

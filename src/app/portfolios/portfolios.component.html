@@ -1,12 +1,18 @@
 <h1>Portfolios</h1>
-
-<ul>
-  <li *ngFor="let portfolio of portfolios">
-    <a routerLink="/portfolio/{{portfolio.id}}">{{ portfolio.project_name }}</a>
-    
-    <ul>
-      <li>{{ portfolio.description }}</li>
-      <li><a href="http:/">{{ portfolio.link }}</a></li>
-    </ul>
-  </li>
-</ul>
+<div>
+	<div style="float: left;width: 49%">
+		<h4>Production Projects</h4>
+		<div class="portfolio-list" *ngFor="let portfolio of portfolios_production">
+			{{ portfolio.project_name }} <a href="" id="{{ portfolio.id }}">{{ portfolio.link }}</a>
+			<span style="float: right"><i class="material-icons" (click)="copyMessage(portfolio.id)">assignment</i></span>
+		</div>
+	</div>
+	<div style="float: right;width: 49%">
+		<h4>Development Projects</h4>
+		<div class="portfolio-list" *ngFor="let portfolio of portfolios_development">
+			{{ portfolio.project_name }} <a href="" id="{{ portfolio.id }}">{{ portfolio.link }}</a>
+			<span style="float: right"><i class="material-icons" (click)="copyMessage(portfolio.id)">assignment</i></span>
+			
+		</div>
+	</div>
+</div>
