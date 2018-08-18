@@ -6,9 +6,12 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class DataService {
-    // base_url = 'http://localhost:8000/api/';
-    base_url = 'http://45.248.162.61/portfolio/public/index.php/api/';
+
+    base_url = 'http://localhost/portfolio/public/index.php/api/';
+    // base_url = 'http://45.248.162.61/portfolio/public/index.php/api/';
+
     token = this.auth.getToken();
+
     constructor(private http: HttpClient, private auth: AuthService) { }
 
     getUsers() {
@@ -45,6 +48,10 @@ export class DataService {
 
     addPortfolio(formData) {
        return this.http.post(this.base_url+'portfolio/add?token='+this.token,formData);
+    }
+
+    updatePortfolio(id,formData){
+        return this.http.post(this.base_url+'portfolio/update/'+id+'?token='+this.token,formData);
     }
 
 }

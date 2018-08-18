@@ -12,8 +12,8 @@ export class PortfolioAddComponent implements OnInit {
 		description:null,
 		tags:null,
 		image:null,
-		link:null,
-		link_type:null,
+		production_url:null,
+		development_url:null,
 		client:null,
 		company:null
 	}
@@ -38,8 +38,8 @@ export class PortfolioAddComponent implements OnInit {
 			description:null,
 			tags:null,
 			image:null,
-			link:null,
-			link_type:null,
+			production_url:null,
+			development_url:null,
 			client:null,
 			company:null
 		};

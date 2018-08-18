@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-	base_url = 'http://45.248.162.61/portfolio/public/index.php/api/';
+  base_url = 'http://localhost/portfolio/public/index.php/api/';
+	// base_url = 'http://45.248.162.61/portfolio/public/index.php/api/';
   constructor(private http:HttpClient, private myRoute:Router) { }
 
   doLogin(formData){

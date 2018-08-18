@@ -19,6 +19,8 @@ import { PortfolioAddComponent } from './portfolio-add/portfolio-add.component';
 import { PortfolioEditComponent } from './portfolio-edit/portfolio-edit.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { ProfileViewComponent } from './profile-view/profile-view.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

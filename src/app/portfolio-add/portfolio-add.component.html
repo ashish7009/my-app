@@ -7,13 +7,8 @@
     <input [(ngModel)]="formData.description" type="text" placeholder="Description" name="description"  required="required"/>
     <input [(ngModel)]="formData.tags" type="text" placeholder="Tags" name="tags"  required="required"/>
     <input [(ngModel)]="formData.image" type="text" placeholder="Image" name="image"  required="required"/>
-    <input [(ngModel)]="formData.link" type="text" placeholder="Link" name="link"  required="required"/>
-    <!-- <input [(ngModel)]="formData.link_type" type="text" placeholder="Link type" name="link_type"  required="required"/> -->
-    <label>Select Link type</label>
-    <select [(ngModel)]="formData.link_type" name="link_type">
-        <option value="production">Production</option>
-        <option value="development">Developemnt</option>
-    </select>
+    <input [(ngModel)]="formData.production_url" type="text" placeholder="Production url" name="production_url"  />
+    <input [(ngModel)]="formData.development_url" type="text" placeholder="Development url" name="development_url"  />
     <input [(ngModel)]="formData.client" type="text" placeholder="Client" name="client"  required="required"/>
     <input [(ngModel)]="formData.company" type="text" placeholder="Company" name="company"  required="required"/>
     <button type="submit" color="primary" [disabled]="!addPortfolioForm.valid">Add Portfolio</button>
