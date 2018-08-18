@@ -1,5 +1,14 @@
-<h1>{{ user.name }}</h1>
-
-<ul>
-  <li><strong>Email:</strong> {{ user.email }}</li>
-</ul>
+<form #editUserForm=ngForm (ngSubmit)="onSubmit(user.id)">
+	<div *ngIf="message" style="background-color: #d7e2d7;padding: 12px;margin-bottom: 16px;">
+  		{{message}}
+  	</div>
+    <input [(ngModel)]="user.name" type="text" placeholder="name" name="name"  required="required"/>
+    <input [(ngModel)]="user.email" type="email" placeholder="Description" name="email"  required="required"/>
+    <select class="browser-default" name="permission" [(ngModel)]="user.permission">
+    	<option selected="selected" disabled="disabled">Select</option>
+        <option value="2">Account Manager</option>
+        <option value="3">BDM</option>
+      </select>
+   
+    <button type="submit" color="primary" [disabled]="!editUserForm.valid">Add Portfolio</button>
+</form>

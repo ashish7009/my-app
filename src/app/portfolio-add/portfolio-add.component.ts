@@ -26,7 +26,8 @@ export class PortfolioAddComponent implements OnInit {
 
   	onSubmit(){
 		this.data_service.addPortfolio(this.formData).subscribe(
-	  		data => this.sendMessage(data) 
+	  		data => this.sendMessage(data),
+	  		error => this.handleError(error)
 		);
 	}
 
@@ -42,6 +43,9 @@ export class PortfolioAddComponent implements OnInit {
 			client:null,
 			company:null
 		};
+	}
+	handleError(error){
+		this.message = error.error;
 	}
 
 }

@@ -11,7 +11,8 @@ export class UserAddComponent implements OnInit {
 	public form = {
 		name:null,
 		email:null,
-		password:null
+		password:null,
+		permission:null
 	};
 
 	message = null;
@@ -34,7 +35,8 @@ export class UserAddComponent implements OnInit {
 		this.form = {
 			name:null,
 			email:null,
-			password:null
+			password:null,
+			permission:null
 		};
 	}
 

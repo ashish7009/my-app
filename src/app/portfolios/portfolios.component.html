@@ -3,15 +3,17 @@
 	<div style="float: left;width: 49%">
 		<h4>Production Projects</h4>
 		<div class="portfolio-list" *ngFor="let portfolio of portfolios_production">
-			{{ portfolio.project_name }} <a href="" id="{{ portfolio.id }}">{{ portfolio.link }}</a>
-			<span style="float: right"><i class="material-icons" (click)="copyMessage(portfolio.id)">assignment</i></span>
+			<span routerLink="/portfolio/{{portfolio.id}}">{{ portfolio.project_name }}</span> <a href="" id="{{ portfolio.id }}">{{ portfolio.link }}</a>
+			<input style="opacity: 0" type="text" name="" value="{{ portfolio.link }}" #userinput>
+			<span style="float: right"><i class="material-icons" (click)="copyMessage(userinput)">assignment</i></span>
 		</div>
 	</div>
 	<div style="float: right;width: 49%">
 		<h4>Development Projects</h4>
 		<div class="portfolio-list" *ngFor="let portfolio of portfolios_development">
-			{{ portfolio.project_name }} <a href="" id="{{ portfolio.id }}">{{ portfolio.link }}</a>
-			<span style="float: right"><i class="material-icons" (click)="copyMessage(portfolio.id)">assignment</i></span>
+			<span routerLink="/portfolio/{{portfolio.id}}">{{ portfolio.project_name }}</span> <a href="" id="{{ portfolio.id }}">{{ portfolio.link }}</a>
+			<input style="opacity: 0" type="text" name="" value="{{ portfolio.link }}" #userinput>
+			<span style="float: right"><i class="material-icons" (click)="copyMessage(userinput)">assignment</i></span>
 			
 		</div>
 	</div>

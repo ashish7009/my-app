@@ -53,3 +53,16 @@ nav[_ngcontent-c1]{
 .form[_ngcontent-c2] button[_ngcontent-c2]:disabled:hover{
   background-color: grey
 }
+select {
+  background: #f2f2f2;
+  width: 100%;
+  margin-bottom: 15px;
+  height: 35px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border:0;
+ 
+  border-radius: 0;
+ 
+}

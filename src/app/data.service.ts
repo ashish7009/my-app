@@ -6,7 +6,8 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class DataService {
-    base_url = 'http://localhost:8000/api/';
+    // base_url = 'http://localhost:8000/api/';
+    base_url = 'http://45.248.162.61/portfolio/public/index.php/api/';
     token = this.auth.getToken();
     constructor(private http: HttpClient, private auth: AuthService) { }
 
@@ -24,6 +25,10 @@ export class DataService {
 
     deleteUser(id) {
        return this.http.get(this.base_url+'user/delete/'+id+'?token='+this.token);
+    }
+
+    updateUser(id,formData){
+        return this.http.post(this.base_url+'user/update/'+id+'?token='+this.token,formData);
     }
 
     getUser(userId) {

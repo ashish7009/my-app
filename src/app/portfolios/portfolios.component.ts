@@ -24,9 +24,9 @@ export class PortfoliosComponent implements OnInit {
     this.portfolios_development = data.development_portfolios;
   }
   
-
-  copyMessage(id){
-    this.textToCopy = document.getElementById(id);
-    console.log(this.textToCopy);
-    }
+  copyMessage(inputElement){
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+  }
 }

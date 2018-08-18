@@ -10,21 +10,47 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class UserEditComponent implements OnInit {
 
-  user: Object;
+  userId: Object;
+  user= {
+    id:null,
+    name:null,
+    email:null,
+    permission:null
+  };
   message = null;
   constructor(private route: ActivatedRoute,private data: DataService) { 
-  	this.route.params.subscribe( params => this.user = params.id );
+  	this.route.params.subscribe( params => this.userId = params.id );
   }
 
   ngOnInit() {
-  	this.data.getUser(this.user).subscribe(
-      data => this.user = data,
+  	this.data.getUser(this.userId).subscribe(
+      data => this.displayData(data),
       error => this.handleError(error)
     );
+  }
+
+  onSubmit(id){
+    this.data.updateUser(id,this.user).subscribe(
+      data => this.sendMessage(data) 
+    );  
   }
 
   handleError(error){
     this.message = error.error;
   }
 
+  displayData(data){
+    console.log(data);
+    this.user= {
+      id:data.id,
+      name:data.name,
+      email:data.email,
+      permission:data.permission
+    };
+  }
+
+  sendMessage(data){
+    console.log(data);
+    this.message = data.message;
+  }
 }

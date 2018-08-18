@@ -3,8 +3,27 @@
   		{{message}}
   	</div>
 	<h3>User profile</h3>
-    <input [(ngModel)]="form.name" type="text" placeholder="Name" name="name"  required="required"/>
-    <input [(ngModel)]="form.email" type="email" placeholder="Email" name="email"  required="required"/>
+	
+	<table>
+		<tr>
+			<td>
+				name
+			</td>
+			<td>
+				{{form.name}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				email
+			</td>
+			<td>
+				{{form.email}}
+			</td>
+		</tr>
+	</table>
+   <!--  <input [(ngModel)]="form.name" type="text" placeholder="Name" name="name"  required="required"/>
+    <input [(ngModel)]="form.email" type="email" placeholder="Email" name="email"  required="required"/> -->
    
-    <button type="submit" color="primary" [disabled]="!profileForm.valid">Update Profile</button>
+    <!-- <button type="submit" color="primary" [disabled]="!profileForm.valid">Update Profile</button> -->
 </form>
