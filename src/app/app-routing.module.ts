@@ -11,6 +11,7 @@ import { PortfoliosComponent } from './portfolios/portfolios.component';
 import { PortfolioEditComponent } from './portfolio-edit/portfolio-edit.component';
 import { PortfolioAddComponent } from './portfolio-add/portfolio-add.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { PermissionsComponent } from './permissions/permissions.component';
 
 
 const routes: Routes = [
@@ -60,6 +61,11 @@ const routes: Routes = [
     {
       path: 'portfolio/:id',
       component: PortfolioEditComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'permissions',
+      component: PermissionsComponent,
       canActivate: [AuthGuard]
     },
 ];

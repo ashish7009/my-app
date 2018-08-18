@@ -1,23 +1,35 @@
 <h1>Portfolios</h1>
 <div>
 	<input [(ngModel)]="searchText" placeholder="search text goes here">
+	<select [(ngModel)]="company">
+		<option value="company-one">one</option>
+		<option value="company-two">two</option>
+		<option value="company-three">three</option>
+	</select>
 	<button class="copy_production">copy production</button>
 	<button class="copy_development">copy development</button>
 	<div style="float: left;width: 49%" class="production">
 		<h4>Production Projects</h4>
-		<div class="portfolio-list" *ngFor="let portfolio of portfolios_production |filter : searchText">
+		<div class="portfolio-list" *ngFor="let portfolio of portfolios_production |filter : searchText|filter : company">
 			<span routerLink="/portfolio/{{portfolio.id}}">{{ portfolio.project_name  }}</span> 
 			<a href="" id="{{ portfolio.id }}" class="production_links">{{ portfolio.production_url }}</a>
+			<div>tags: {{ portfolio.tags }}</div>
+			<div>
+				company: {{ portfolio.company }}
+			</div>
 			
 			
 		</div>
 	</div>
 	<div style="float: right;width: 49%" class="development">
 		<h4>Development Projects</h4>
-		<div class="portfolio-list" *ngFor="let portfolio of portfolios_development |filter : searchText">
+		<div class="portfolio-list" *ngFor="let portfolio of portfolios_development |filter : searchText|filter : company">
 			<span routerLink="/portfolio/{{portfolio.id}}">{{ portfolio.project_name }}</span> 
 			<a href="" id="{{ portfolio.id }}" class="development_links">{{ portfolio.development_url }}</a>
-			
+			<div>tags: {{ portfolio.tags }}</div>
+			<div>
+				company: {{ portfolio.company }}
+			</div>
 			
 		</div>
 	</div>

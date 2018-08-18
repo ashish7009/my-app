@@ -31,6 +31,7 @@ export class DataService {
     }
 
     updateUser(id,formData){
+        console.log(formData);
         return this.http.post(this.base_url+'user/update/'+id+'?token='+this.token,formData);
     }
 
@@ -52,6 +53,15 @@ export class DataService {
 
     updatePortfolio(id,formData){
         return this.http.post(this.base_url+'portfolio/update/'+id+'?token='+this.token,formData);
+    }
+
+    getRoles(){
+         return this.http.get(this.base_url+'roles?token='+this.token);
+    }
+
+     updatePermission(id, data){
+         console.log(data);
+        return this.http.post(this.base_url+'permission/update/'+id+'?token='+this.token,data);
     }
 
 }

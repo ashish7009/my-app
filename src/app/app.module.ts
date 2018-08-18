@@ -18,8 +18,11 @@ import { UserAddComponent } from './user-add/user-add.component';
 import { PortfolioAddComponent } from './portfolio-add/portfolio-add.component';
 import { PortfolioEditComponent } from './portfolio-edit/portfolio-edit.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { PermissionsComponent } from './permissions/permissions.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Select2Module } from 'ng2-select2';
+
 
 
 @NgModule({
@@ -34,14 +37,16 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     UserAddComponent,
     PortfolioAddComponent,
     PortfolioEditComponent,
-    ProfileViewComponent
+    ProfileViewComponent,
+    PermissionsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    Select2Module
   ],
   providers: [],
   bootstrap: [AppComponent]
