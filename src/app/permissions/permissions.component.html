@@ -1,9 +1,10 @@
-<div *ngFor="let role of roles">
+<div *ngFor="let role of roles; let i=index">
 	<form (ngSubmit)="onSubmit(role.id)" id="form_{{role.id}}">
-		{{role.name}}
+		Role: {{role.name}}<br>
+		Permission granted: {{role.allowed_routes}}
 		<div *ngFor="let route of routes">
-			<input type="checkbox" id="{{route}}" name="accessible_routes" value="{{route}}">
-			<label for="{{route}}">{{route}}</label>
+			<input type="checkbox" id="{{route}}_{{i}}" name="{{route}}" value="{{route}}">
+			<label for="{{route}}_{{i}}">{{route}}</label>
 		</div>
 		<button type="submit" id="{{role.id}}">Save</button>
 	</form>

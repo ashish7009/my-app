@@ -4,13 +4,21 @@
   		{{message}}
   	</div>
 	<h3>Add new portfolio</h3>
+    <label>Project Name</label>
     <input [(ngModel)]="portfolio.project_name" type="text" placeholder="Project name" name="project_name"  required="required"/>
+    <label>Description</label>
     <input [(ngModel)]="portfolio.description" type="text" placeholder="Description" name="description"  required="required"/>
+    <label>Tags (comma seperated values)</label>
     <input [(ngModel)]="portfolio.tags" type="text" placeholder="Tags" name="tags"  required="required"/>
+    <label>Image</label>
     <input [(ngModel)]="portfolio.image" type="text" placeholder="Image" name="image"  required="required"/>
+    <label>Production URL</label>
     <input [(ngModel)]="portfolio.production_url" type="text" placeholder="production_url" name="production_url"  />
+    <label>Development URL</label>
     <input [(ngModel)]="portfolio.development_url" type="text" placeholder="development_url" name="development_url"  />
+    <label>Client</label>
     <input [(ngModel)]="portfolio.client" type="text" placeholder="Client" name="client"  required="required"/>
+    <label>Company</label>
     <input [(ngModel)]="portfolio.company" type="text" placeholder="Company" name="company"  required="required"/>
     <button type="submit" color="primary" [disabled]="!editPortfolioForm.valid">Add Portfolio</button>
 </form>

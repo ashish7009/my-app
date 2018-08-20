@@ -1,13 +1,27 @@
 <h1>Portfolios</h1>
 <div>
-	<input [(ngModel)]="searchText" placeholder="search text goes here">
-	<select [(ngModel)]="company">
-		<option value="company-one">one</option>
-		<option value="company-two">two</option>
-		<option value="company-three">three</option>
-	</select>
-	<button class="copy_production">copy production</button>
-	<button class="copy_development">copy development</button>
+	<div class="search-wrapper">
+		<div class="search-input">
+			<label>Search by tags</label>
+			<input [(ngModel)]="searchText" placeholder="search text goes here">
+		</div>
+		<div class="search-company">
+			<label>Select by Company Name</label>
+			<select [(ngModel)]="company">
+				<option value="company-one" selected="selected">one</option>
+				<option value="company-two">two</option>
+				<option value="company-three">three</option>
+			</select>
+		</div>
+		<div class="copy-button-wrapper">
+			<button class="copy_production">copy production</button>
+			<button class="copy_development">copy development</button>
+		</div>
+		<div style="clear: both"></div>
+	</div>
+	
+			
+			
 	<div style="float: left;width: 49%" class="production">
 		<h4>Production Projects</h4>
 		<div class="portfolio-list" *ngFor="let portfolio of portfolios_production |filter : searchText|filter : company">
@@ -17,8 +31,6 @@
 			<div>
 				company: {{ portfolio.company }}
 			</div>
-			
-			
 		</div>
 	</div>
 	<div style="float: right;width: 49%" class="development">

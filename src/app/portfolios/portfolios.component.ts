@@ -18,7 +18,7 @@ export class PortfoliosComponent implements OnInit {
 
     ngOnInit() {
     	this.data.getPortfolios().subscribe(
-     	data => this.handleData(data) 
+     	    data => this.handleData(data) 
         );
         $(document).ready(function(){
             var data_to_clipboard = '';
@@ -53,7 +53,6 @@ export class PortfoliosComponent implements OnInit {
     handleData(data){
         this.portfolios_production = data.production_portfolios;
         this.portfolios_development = data.development_portfolios;
-        
     }
   
 }
