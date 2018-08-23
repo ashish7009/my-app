@@ -18,7 +18,7 @@
                 </ul>
             </div>
         </li>
-        <li>
+        <li *ngIf="auth.checkRole() == 'admin' || auth.checkRole() == 'account_manager'">
             <div class="thumb" >
                 <i class="material-icons">
                     supervised_user_circle
@@ -56,7 +56,7 @@
             </div>
         </li>
 
-        <li>
+        <li *ngIf="auth.checkRole() == 'admin'">
             <div class="thumb" >
                 <i class="material-icons">
                     account_circle

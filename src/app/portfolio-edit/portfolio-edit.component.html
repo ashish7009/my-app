@@ -4,14 +4,20 @@
   		{{message}}
   	</div>
 	<h3>Add new portfolio</h3>
+    <div class="image-wrapper">
+        <div class="options">
+            <i class="material-icons"  (click)="uploadImage()">exit_to_app</i>
+            <input type="file" style="display: none" name="image">
+            <i class="material-icons" (click)="removeImage()">highlight_off</i>
+        </div>
+        <img src="{{portfolio.image}}" style="width: 100%;">
+    </div>
     <label>Project Name</label>
     <input [(ngModel)]="portfolio.project_name" type="text" placeholder="Project name" name="project_name"  required="required"/>
     <label>Description</label>
     <input [(ngModel)]="portfolio.description" type="text" placeholder="Description" name="description"  required="required"/>
     <label>Tags (comma seperated values)</label>
     <input [(ngModel)]="portfolio.tags" type="text" placeholder="Tags" name="tags"  required="required"/>
-    <label>Image</label>
-    <input [(ngModel)]="portfolio.image" type="text" placeholder="Image" name="image"  required="required"/>
     <label>Production URL</label>
     <input [(ngModel)]="portfolio.production_url" type="text" placeholder="production_url" name="production_url"  />
     <label>Development URL</label>

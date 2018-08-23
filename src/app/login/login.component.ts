@@ -3,6 +3,7 @@ import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,9 +26,12 @@ export class LoginComponent implements OnInit {
       data => this.saveToken(data),
       error => this.handleError(error)
     );	
+    
   }
   saveToken(data){
     localStorage.setItem("LoggedInUser", data.token);
+    localStorage.setItem("userRole", data.role);
+
     this.myRoute.navigate(["portfolios"]);
   }
   handleError(error){

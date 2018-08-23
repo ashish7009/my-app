@@ -24,12 +24,16 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("LoggedInUser");
+    localStorage.removeItem("userRole");
     this.myRoute.navigate(["login"]);
     window.location.reload();
   }
 
   registerUser(formData){
     return this.http.post(this.base_url+'auth/register',formData);
+  }
+  checkRole() {
+      return localStorage.getItem("userRole")
   }
   
 }

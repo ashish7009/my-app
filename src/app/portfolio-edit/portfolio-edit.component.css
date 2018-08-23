@@ -31,3 +31,32 @@ form button {
 form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }
+.image-wrapper{
+  position: relative;
+}
+.image-wrapper .options{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.3);
+  display: none;
+}
+.image-wrapper:hover .options{
+  display: block;
+}
+.options > i:first-child{
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  top: 48%;
+  left: 46%;
+}
+.options > i{
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  top: 48%;
+  left: 54%;
+}

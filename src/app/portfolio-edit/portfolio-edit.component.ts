@@ -40,7 +40,7 @@ export class PortfolioEditComponent implements OnInit {
 	onSubmit(id){
 	    this.data.updatePortfolio(id,this.portfolio).subscribe(
 	      	data => this.sendMessage(data) 
-	    );  
+	    );
 	}
 
 	displayData(data){
@@ -49,7 +49,7 @@ export class PortfolioEditComponent implements OnInit {
 			project_name:	data.project_name,
 			description:	data.description,
 			tags:			data.tags,
-			image:			data.image,
+			image:			'http://localhost/portfolio/public/images/'+data.image,
 			production_url:	data.production_url,
 			development_url:data.development_url,
 			client:			data.client,
@@ -63,6 +63,14 @@ export class PortfolioEditComponent implements OnInit {
 
 	sendMessage(data){
 		this.message = data.message;
+	}
+
+	uploadImage(){
+		console.log('upload new file');
+	}
+
+	removeImage(){
+		console.log('remove this file');
 	}
 
 }

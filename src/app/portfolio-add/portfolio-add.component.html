@@ -5,11 +5,11 @@
 	<h3>Add new portfolio</h3>
     <input [(ngModel)]="formData.project_name" type="text" placeholder="Project name" name="project_name"  required="required"/>
     <input [(ngModel)]="formData.description" type="text" placeholder="Description" name="description"  required="required"/>
-    <input [(ngModel)]="formData.tags" type="text" placeholder="Tags" name="tags"  required="required"/>
-    <input [(ngModel)]="formData.image" type="text" placeholder="Image" name="image"  required="required"/>
+    <input [(ngModel)]="formData.tags" type="text" placeholder="Tags" name="tags"/>
+    <input (change)="fileUpload($event)" type="file" placeholder="Image" name="image"  />
     <input [(ngModel)]="formData.production_url" type="text" placeholder="Production url" name="production_url"  />
     <input [(ngModel)]="formData.development_url" type="text" placeholder="Development url" name="development_url"  />
-    <input [(ngModel)]="formData.client" type="text" placeholder="Client" name="client"  required="required"/>
-    <input [(ngModel)]="formData.company" type="text" placeholder="Company" name="company"  required="required"/>
+    <input [(ngModel)]="formData.client" type="text" placeholder="Client" name="client"  />
+    <input [(ngModel)]="formData.company" type="text" placeholder="Company" name="company"/>
     <button type="submit" color="primary" [disabled]="!addPortfolioForm.valid">Add Portfolio</button>
 </form>
