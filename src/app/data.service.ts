@@ -47,7 +47,6 @@ export class DataService {
 
     getPortfolio(portfolioId){
         let data = this.http.get(this.base_url+'portfolio/edit/'+portfolioId+'?token='+this.token);
-        console.log(data);
         return data;
     }
 
@@ -71,22 +70,27 @@ export class DataService {
     updatePortfolio(id,formData){
         return this.http.post(this.base_url+'portfolio/update/'+id+'?token='+this.token,formData);
     }
-    
+
     updatePortfolioImage(id,fileItem:File){
         const formData: FormData = new FormData();
         formData.append('fileItem', fileItem, fileItem.name);
-        return this.http.post(this.base_url+'portfolio/update/image'+id+'?token='+this.token,formData);
+        const req = new HttpRequest('POST', this.base_url+'portfolio/update/image/'+id+'?token='+this.token, formData, {
+            reportProgress: true // for progress data
+          });
+          return this.http.request(req)
+        // return this.http.post(this.base_url+'portfolio/update/image/'+id+'?token='+this.token,formData);
     }
-
-
-
+    removePortfolioImage(id){
+        return this.http.get(this.base_url+'portfolio/remove/image/'+id+'?token='+this.token);
+    }
     getRoles(){
          return this.http.get(this.base_url+'roles?token='+this.token);
     }
 
-     updatePermission(id, data){
+    updatePermission(id, data){
          console.log(data);
         return this.http.post(this.base_url+'permission/update/'+id+'?token='+this.token,data);
+
     }
     
 

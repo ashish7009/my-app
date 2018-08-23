@@ -33,6 +33,8 @@ form button:hover,.form button:active,.form button:focus {
 }
 .image-wrapper{
   position: relative;
+  width: 50%;
+  min-height: 100px;
 }
 .image-wrapper .options{
   position: absolute;
@@ -46,7 +48,7 @@ form button:hover,.form button:active,.form button:focus {
 .image-wrapper:hover .options{
   display: block;
 }
-.options > i:first-child{
+.options > label > i{
   color: white;
   font-size: 30px;
   position: absolute;

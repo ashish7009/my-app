@@ -16,14 +16,13 @@ export class PortfolioEditComponent implements OnInit {
 		project_name:	null,
 		description:	null,
 		tags:			null,
-		image:			null,
 		production_url:	null,
 		development_url:null,
 		client:			null,
 		company:		null
 	};
 	message = null;
-
+	image;
 	constructor(private route: ActivatedRoute,private data: DataService) { 
 		this.route.params.subscribe( 
 			params => this.portfolioId = params.id 
@@ -49,12 +48,12 @@ export class PortfolioEditComponent implements OnInit {
 			project_name:	data.project_name,
 			description:	data.description,
 			tags:			data.tags,
-			image:			'http://localhost/portfolio/public/images/'+data.image,
 			production_url:	data.production_url,
 			development_url:data.development_url,
 			client:			data.client,
 			company:		data.company
 		}
+		this.image = 'http://localhost/portfolio/public/images/'+data.image;
 	}
 
 	handleError(error){
@@ -65,12 +64,25 @@ export class PortfolioEditComponent implements OnInit {
 		this.message = data.message;
 	}
 
-	uploadImage(){
-		console.log('upload new file');
+	fileUpload(event,id){
+		let fileList: FileList = event.target.files;
+  	    if(fileList.length > 0) {
+	  	    let file: File = fileList[0];
+	  	    this.data.updatePortfolioImage(id,file).subscribe(
+		      	data => this.handleImage(data) 
+		    );
+  		}
+	}
+	removeImage(id){
+		this.data.removePortfolioImage(id).subscribe(
+	      	data => this.handleImage(data) 
+	    );
+	}
+	handleImage(data){
+		this.message = data.message;
+		this.ngOnInit();
 	}
 
-	removeImage(){
-		console.log('remove this file');
-	}
+	
 
 }
