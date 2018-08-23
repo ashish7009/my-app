@@ -23,6 +23,9 @@ export class PortfolioEditComponent implements OnInit {
 	};
 	message = null;
 	image;
+	project = null;
+	db = null;
+	cred = null;
 	constructor(private route: ActivatedRoute,private data: DataService) { 
 		this.route.params.subscribe( 
 			params => this.portfolioId = params.id 
@@ -54,6 +57,9 @@ export class PortfolioEditComponent implements OnInit {
 			company:		data.company
 		}
 		this.image = 'http://localhost/portfolio/public/images/'+data.image;
+		this.project = data.project_backup_file;
+		this.db = data.database_backup_file;
+		this.cred = data.credential_file;
 	}
 
 	handleError(error){
@@ -81,6 +87,19 @@ export class PortfolioEditComponent implements OnInit {
 	handleImage(data){
 		this.message = data.message;
 		this.ngOnInit();
+	}
+
+	downloadFile(param){
+		console.log(param);
+		if (param == 'project') {
+			window.open('http://localhost/portfolio/public/projectBackup/'+this.project);
+		}
+		if (param == 'sql') {
+			window.open('http://localhost/portfolio/public/databaseBackup/'+this.db);
+		}
+		if (param == 'credential') {
+			window.open('http://localhost/portfolio/public/credentials/'+this.cred);
+		}
 	}
 
 	

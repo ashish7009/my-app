@@ -10,6 +10,36 @@
     <input [(ngModel)]="formData.production_url" type="text" placeholder="Production url" name="production_url"  />
     <input [(ngModel)]="formData.development_url" type="text" placeholder="Development url" name="development_url"  />
     <input [(ngModel)]="formData.client" type="text" placeholder="Client" name="client"  />
+   
+        
     <input [(ngModel)]="formData.company" type="text" placeholder="Company" name="company"/>
+    <div class="checkbox-wrapper">        
+        <input type="checkbox" name="backup" id="backup" (change)="showBackupField()"/>
+        <label for="backup">Do you have backup for this project</label>
+    </div>
+    <div *ngIf="backupDiv">
+        <div>Project Backup File Description</div>
+        <input [(ngModel)]="formData.project_backup_desc" type="text" placeholder="Backup File Description" name="project_backup_desc"/>
+        <div>Project Backup file (choose zip file)</div>
+        <input (change)="projectBackup($event)" type="file" placeholder="Backup File Description" name="project_backup_file"/>
+        <div *ngIf="projectFileError" style="background: #EF9A9A;padding: 10px;">
+            {{projectFileError}}
+        </div>
+        <div>Databse Backup File Description</div>
+        <input [(ngModel)]="formData.database_backup_desc" type="text" placeholder="Backup File Description" name="database_backup_desc"/>
+        <div>Database Backup file (choose sql file)</div>
+        <input (change)="databaseBackup($event)" type="file" placeholder="Backup File Description" name="database_backup_file"/>
+         <div *ngIf="dbFileError" style="background: #EF9A9A;padding: 10px;">
+            {{dbFileError}}
+        </div>
+        <div>Credential File Description</div>
+        <input [(ngModel)]="formData.credential_file_desc" type="text" placeholder="Backup File Description" name="credential_file_desc"/>
+        <div>Credential file (choose txt file)</div>
+        <input (change)="credentialFile($event)" type="file" placeholder="Backup File Description" name="credential_file"/>
+         <div *ngIf="credentialFileError" style="background: #EF9A9A;padding: 10px;">
+            {{credentialFileError}}
+        </div>
+           
+    </div>
     <button type="submit" color="primary" [disabled]="!addPortfolioForm.valid">Add Portfolio</button>
 </form>

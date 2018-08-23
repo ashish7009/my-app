@@ -1,7 +1,7 @@
 <div *ngIf="message" style="background-color: #d7e2d7;padding: 12px;margin-bottom: 16px;">
     {{message}}
 </div>
-<h3>Add new portfolio</h3>
+<h3> portfolio</h3>
 
 <div class="image-wrapper">
     <div class="options">
@@ -12,6 +12,11 @@
         <i class="material-icons" (click)="removeImage(portfolio.id)">highlight_off</i>
     </div>
     <img src="{{image}}" style="width: 100%;">
+</div>
+<div style="float: right">
+    <button color="primary" (click)="downloadFile('project')">Download project backup</button>
+    <button color="primary" (click)="downloadFile('sql')">Download database backup</button>
+    <button color="primary" (click)="downloadFile('credential')">Download credential</button>
 </div>
 <form #editPortfolioForm=ngForm (ngSubmit)="onSubmit(portfolio.id)">
     <label>Project Name</label>

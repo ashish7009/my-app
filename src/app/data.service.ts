@@ -40,20 +40,27 @@ export class DataService {
     getUser(userId) {
         return this.http.get(this.base_url+'user/edit/'+userId+'?token='+this.token);
     }
-
     getPortfolios() {
         return this.http.get(this.base_url+'portfolios?token='+this.token);
     }
-
     getPortfolio(portfolioId){
         let data = this.http.get(this.base_url+'portfolio/edit/'+portfolioId+'?token='+this.token);
         return data;
     }
-
-    addPortfolio(fileItem:File, extraData?:object):any {
+    addPortfolio(fileItem:File,projectFile:File,dbFile:File,credentialFile:File, extraData?:object,):any {
         const formData: FormData = new FormData();
-
-        formData.append('fileItem', fileItem, fileItem.name);
+        if (fileItem != null) {
+            formData.append('fileItem', fileItem, fileItem.name);
+        }
+        if (projectFile != null) {
+            formData.append('projectFile', projectFile, projectFile.name);
+        }
+        if (dbFile != null) {
+            formData.append('dbFile', dbFile, dbFile.name);
+        }
+        if (credentialFile != null) {
+            formData.append('credentialFile', credentialFile, credentialFile.name);
+        }
         if (extraData) {
             for(let key in extraData){
                 // iterate and set other form data
@@ -62,22 +69,20 @@ export class DataService {
         }
         const req = new HttpRequest('POST', this.base_url+'portfolio/add?token='+this.token, formData, {
             reportProgress: true // for progress data
-          });
-          return this.http.request(req)
-           // return this.http.post(this.base_url+'portfolio/add?token='+this.token,formData);
+        });
+        return this.http.request(req)
+        // return this.http.post(this.base_url+'portfolio/add?token='+this.token,formData);
     }
-
     updatePortfolio(id,formData){
         return this.http.post(this.base_url+'portfolio/update/'+id+'?token='+this.token,formData);
     }
-
     updatePortfolioImage(id,fileItem:File){
         const formData: FormData = new FormData();
         formData.append('fileItem', fileItem, fileItem.name);
         const req = new HttpRequest('POST', this.base_url+'portfolio/update/image/'+id+'?token='+this.token, formData, {
             reportProgress: true // for progress data
-          });
-          return this.http.request(req)
+        });
+        return this.http.request(req)
         // return this.http.post(this.base_url+'portfolio/update/image/'+id+'?token='+this.token,formData);
     }
     removePortfolioImage(id){
@@ -92,6 +97,4 @@ export class DataService {
         return this.http.post(this.base_url+'permission/update/'+id+'?token='+this.token,data);
 
     }
-    
-
 }
