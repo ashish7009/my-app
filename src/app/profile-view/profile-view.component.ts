@@ -11,7 +11,8 @@ export class ProfileViewComponent implements OnInit {
 	currentUser: Object;
 	public form = {
 		name:null,
-		email:null
+		email:null,
+		permission:null
 	};
 	constructor(private data: DataService) {
 
@@ -26,7 +27,8 @@ export class ProfileViewComponent implements OnInit {
 		console.log(data.result);
 		this.form = {
 			name:data.result.name,
-			email:data.result.email
+			email:data.result.email,
+			permission:data.result.permission
 		};
 	}
 }

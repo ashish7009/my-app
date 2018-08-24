@@ -1,4 +1,4 @@
-<h1>Portfolios</h1>
+<h2>Portfolios</h2>
 <div>
 	<div class="search-wrapper">
 		<div class="search-input">
@@ -8,14 +8,10 @@
 		<div class="search-company">
 			<label>Select by Company Name</label>
 			<select [(ngModel)]="company">
-				<option value="company-one" selected="selected">one</option>
-				<option value="company-two">two</option>
-				<option value="company-three">three</option>
+				 <option value="" selected="selected">Select an option</option>
+				 <option value="esferasoft">Esferasoft</option>
+        		 <option value="web_expertz">Web Experts</option>
 			</select>
-		</div>
-		<div class="copy-button-wrapper">
-			<button class="copy_production">copy production</button>
-			<button class="copy_development">copy development</button>
 		</div>
 		<div style="clear: both"></div>
 	</div>
@@ -23,7 +19,8 @@
 			
 			
 	<div style="float: left;width: 49%" class="production">
-		<h4>Production Projects</h4>
+		<h4>Production Projects<button class="copy_production" style="float: right">copy production</button></h4>
+
 		<div class="portfolio-list" *ngFor="let portfolio of portfolios_production |filter : searchText|filter : company">
 			<span routerLink="/portfolio/{{portfolio.id}}">{{ portfolio.project_name  }}</span> 
 			<a href="" id="{{ portfolio.id }}" class="production_links">{{ portfolio.production_url }}</a>
@@ -34,7 +31,7 @@
 		</div>
 	</div>
 	<div style="float: right;width: 49%" class="development">
-		<h4>Development Projects</h4>
+		<h4>Development Projects<button class="copy_development" style="float: right">copy development</button></h4>
 		<div class="portfolio-list" *ngFor="let portfolio of portfolios_development |filter : searchText|filter : company">
 			<span routerLink="/portfolio/{{portfolio.id}}">{{ portfolio.project_name }}</span> 
 			<a href="" id="{{ portfolio.id }}" class="development_links">{{ portfolio.development_url }}</a>

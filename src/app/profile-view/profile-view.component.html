@@ -21,6 +21,20 @@
 				{{form.email}}
 			</td>
 		</tr>
+		<tr>
+			<td>
+				Role
+			</td>
+			<td *ngIf="form.permission == '1'">
+				admin
+			</td>
+			<td *ngIf="form.permission == '2'">
+				Account Manager
+			</td>
+			<td *ngIf="form.permission == '3'">
+				BDM
+			</td>
+		</tr>
 	</table>
    <!--  <input [(ngModel)]="form.name" type="text" placeholder="Name" name="name"  required="required"/>
     <input [(ngModel)]="form.email" type="email" placeholder="Email" name="email"  required="required"/> -->

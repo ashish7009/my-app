@@ -91,13 +91,13 @@ export class PortfolioEditComponent implements OnInit {
 
 	downloadFile(param){
 		console.log(param);
-		if (param == 'project') {
+		if (param == 'project' && this.project != null) {
 			window.open('http://localhost/portfolio/public/projectBackup/'+this.project);
 		}
-		if (param == 'sql') {
+		if (param == 'sql' && this.db != null) {
 			window.open('http://localhost/portfolio/public/databaseBackup/'+this.db);
 		}
-		if (param == 'credential') {
+		if (param == 'credential' && this.cred != null) {
 			window.open('http://localhost/portfolio/public/credentials/'+this.cred);
 		}
 	}

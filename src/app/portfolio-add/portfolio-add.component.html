@@ -12,7 +12,14 @@
     <input [(ngModel)]="formData.client" type="text" placeholder="Client" name="client"  />
    
         
-    <input [(ngModel)]="formData.company" type="text" placeholder="Company" name="company"/>
+    <!-- <input  type="text" placeholder="Company" name="company"/> -->
+    <div>
+        Select Comapny
+    </div>
+    <select [(ngModel)]="formData.company" name="company">
+        <option value="esferasoft">Esferasoft</option>
+        <option value="web_expertz">Web Experts</option>
+    </select>
     <div class="checkbox-wrapper">        
         <input type="checkbox" name="backup" id="backup" (change)="showBackupField()"/>
         <label for="backup">Do you have backup for this project</label>

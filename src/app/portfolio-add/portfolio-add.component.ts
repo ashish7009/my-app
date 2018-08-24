@@ -43,7 +43,7 @@ export class PortfolioAddComponent implements OnInit {
 	}
 
 	sendMessage(data){
-		this.message = data.message;
+		this.message = "portfolio added successfully";
 		this.formData = {
 			project_name:null,
 			description:null,

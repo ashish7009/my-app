@@ -1,11 +1,47 @@
-<div *ngFor="let role of roles; let i=index">
+<div *ngFor="let role of roles; let i=index" class="custom-card">
 	<form (ngSubmit)="onSubmit(role.id)" id="form_{{role.id}}">
-		Role: {{role.name}}<br>
-		Permission granted: {{role.allowed_routes}}
-		<div *ngFor="let route of routes">
-			<input type="checkbox" id="{{route}}_{{i}}" name="{{route}}" value="{{route}}">
-			<label for="{{route}}_{{i}}">{{route}}</label>
-		</div>
-		<button type="submit" id="{{role.id}}">Save</button>
+		<h4>
+			
+		Role: {{role.name}}
+		</h4>
+		Permission granted: 
+		<span *ngFor="let route of role.allowed_routes" style="background: #168dc5;margin-right: 5px;display: inline-block;padding: 4px; border-radius:3px;margin-bottom: 5px;color: white ">
+			{{route}}
+		</span>
+		
+		
+		<table class="gridtable">
+			<thead>
+				<tr>
+					<th>
+						Routes
+					</th>
+					<th>
+						Assign permission
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let route of routes">
+					<td>
+						<label for="{{route}}_{{i}}">{{route}}</label>
+					</td>
+					<td>
+						<input type="checkbox" id="{{route}}_{{i}}" name="{{route}}" value="{{route}}">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<button type="submit" color="primary" id="{{role.id}}">Save</button>
 	</form>
 </div>
+
+<!-- Select Role
+<select (change)="roleChange()" [(ngModel)]="userRole">
+	<option  *ngFor="let role of roles" value="{{role.name}}" >
+		{{role.name}}
+	</option>
+</select> -->
+
+
+
